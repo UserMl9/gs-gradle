@@ -4,12 +4,12 @@ node {
   stage('SCM check y Preparacion') {
     checkout scm
   }
-  stage('Testeo') {
+  stage('Test') {
      myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
        sh 'cd complete && gradle test'
      }
   }
-  stage('Ejecucion') {
+  stage('Execution') {
      myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
        sh 'cd complete && gradle run'
      }
